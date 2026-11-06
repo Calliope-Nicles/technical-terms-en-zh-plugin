@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/bin/cat \"${PLUGIN_ROOT}/src/terminology.md\"",
+            "statusMessage": "加载术语表达规则"
+          }
+        ]
+      }
+    ]
+  }
+}
