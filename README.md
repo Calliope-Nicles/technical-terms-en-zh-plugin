@@ -1,62 +1,55 @@
 <img src="assets/pitaya-icon.png" alt="像素小火龙果图标" width="80" height="80">
 
-# 专业术语英汉对照插件
+# 专业术语英汉对照插件 v2.0.0 · Mac 版
 
-English–Chinese Technical Terms Plugin
+帮助学生和软件开发初学者在完成项目的过程中，逐步熟悉常见的专业英语。现支持 Mac 上的 Codex 和 DeepSeek Harness（DSH）。
 
-**v1.0.0 · 首个开源版**
+## 本版更新
 
-帮助学生和软件开发初学者在使用 Codex 学习编程、完成项目的过程中，逐步熟悉常见的专业英语。
+- 新增 DSH 原生接入，与 Codex 使用同一份术语规则。
+- 改进同一条回答中的名称一致性：首次写 `Cache（缓存）`，后续统一写 `Cache`，包括长句、段落和复合短语中的重复出现。
+- 保留每条回答重新释义、优先遵循用户指定表达方式、代码与原样引用保持不变的行为。
 
-插件会在新对话开始时加载术语规则，让 Codex 在中文技术回答中标注关键术语的英文名称和中文释义。
+## 下载
 
-## 使用示例
+- [两端共用的源码 ZIP](https://github.com/Calliope-Nicles/technical-terms-en-zh-plugin/releases/download/v2.0.0/technical-terms-en-zh-2.0.0.zip)：推荐给 Codex 用户，也可供 DSH 从文件夹安装。
+- [DSH 专用安装包](https://github.com/Calliope-Nicles/technical-terms-en-zh-plugin/releases/download/v2.0.0/dsh-plugin-technical-terms-en-zh-2.0.0.tgz)：解压后使用其中的 `package/` 文件夹。
+- [SHA-256 校验清单](https://github.com/Calliope-Nicles/technical-terms-en-zh-plugin/releases/download/v2.0.0/SHA256SUMS)。
 
-**提问**
+使用发行包无需自行构建，也无需安装 Python。
 
-> 一个网页程序为什么要用缓存？缓存过期后应该怎么处理？
+## Codex 安装
 
-**回答节选**
+1. 下载源码 ZIP 并解压，保留解压后的文件夹。
+2. 在 Finder（访达）中选中文件夹，按 `⌥⌘C` 复制绝对路径。
+3. 在 Codex 的 **插件 → 添加 → 添加插件市场** 中填入该路径，添加市场。
+4. 选择 **小火龙果** 来源，安装 `technical-terms-en-zh`，核对版本为 `2.0.0`。
+5. 打开 **设置 → 钩子**，审阅本包的 SessionStart（会话开始钩子）。确认命令使用 `/bin/cat` 读取安装目录中的 `src/terminology.md`，再点击 **信任**。
+6. 新建本地对话，使用下文的问题检查效果。
 
-> Cache（缓存）用于暂存已经获取的数据或计算结果，减少重复请求，让页面加载更快，也减轻服务器压力。
->
-> …
->
-> 请求成功后，替换 Cache，并设置新的有效期。
+从旧的本地来源升级时，先卸载旧版，再移除旧市场来源，随后按上述步骤添加新文件夹并安装。更新后重新核对版本及信任状态，保持一个术语插件来源启用。[钩子配置](https://github.com/Calliope-Nicles/technical-terms-en-zh-plugin/blob/v2.0.0/hooks/hooks.json) · [Codex 钩子说明](https://learn.chatgpt.com/docs/hooks#review-and-trust-hooks)
 
-同一条回答里，第一次写 `Cache（缓存）`，后面写 `Cache`。标注用于解释性文字，代码、命令、路径和原样引用按原文呈现。你在提问时明确指定的表达方式优先。
+## DSH 安装
 
-## 安装与运行
+本版适用于 macOS 的 DSH `0.2.1-rc.3`，安装时会检查平台及宿主版本。
 
-使用支持「添加插件市场」的 Mac 版 Codex 即可。
+1. 下载任一发行包并解压，找到含 `package.json` 和 `cordis.patch.yml` 的文件夹。专用安装包对应 `package/`；源码 ZIP 对应源码根目录。
+2. 在 DSH 侧栏的 **插件** 页点击 **添加插件**，将该文件夹的绝对路径填入 **包名或地址**。
+3. 核对包名 `dsh-plugin-technical-terms-en-zh` 和版本 `2.0.0`，确认安装。
+4. 点击 **立即启用**，或打开列表中本包的开关；核对详情中有 **1 个组件运行中**。
+5. 如提示需要重启，或仍显示旧来源及版本，完全退出并重开 DSH。
+6. 新建独立对话，使用下文的问题检查效果。
 
-1. 在本 GitHub 仓库页选择 **Code → Download ZIP**，下载并解压。在 Finder 中选中解压得到的文件夹，按 `⌥⌘C` 复制它的路径。
-2. 在 Codex 的 **插件** 页点 **添加 → 添加插件市场**，把路径粘贴到 **来源**，再点 **添加市场**。选择 **小火龙果** 来源，打开插件并点 **安装**。
-3. 在 **设置 → 钩子** 找到本插件的 SessionStart（会话开始钩子）。确认它读取的是本插件的术语文件，审阅并信任后新建一个本地对话。 [SessionStart 配置](hooks/hooks.json) · [术语规则](src/terminology.md) · [Codex 钩子说明](https://learn.chatgpt.com/docs/hooks)
+从文件夹安装时，DSH 会引用该文件夹，请保留其位置与内容。已有候选版的用户可通过同一页面安装新目录并核对来源及版本。停用使用列表开关，卸载使用本包的 **卸载** 按钮；在全新对话中确认规则已撤销。本次受测 DSH 卸载后仍保留目录链接，依赖登记及规则贡献已撤销。
 
-<details>
-<summary>已安装 Git 时，直接使用仓库地址</summary>
+## 确认效果
 
-复制本仓库的首页地址，从第 2 步开始，把地址粘贴到 **来源**。
-
-</details>
-
-### 试用
-
-可以用这个问题检查术语标注。
+新建空白对话，发送原问题即可：
 
 > 请用三句话解释缓存的作用、缓存过期的影响，以及更新缓存的时机。每句话都明确提到缓存。只作解释，不读取文件、不调用工具。
 
-预期第一次出现 `Cache（缓存）`，同一条回答后续只写 `Cache`。插件在会话开始时读取本地术语规则，回答由 Codex 生成。
+同一条回答中，首次应看到 `Cache（缓存）`，后续只写 `Cache`；另发一条追问时重新释义。也可以临时要求“这次只用中文，不标英文术语”，下一条普通提问会恢复默认规则。
 
-### 停用或卸载
+本版已在 Mac 上完成 DSH 两项目加载、连续追问、临时表达要求及恢复、代码引用、停用、卸载与归档重装检查，并完成 Codex 共享规则的两轮表达回归。术语选择及措辞仍受模型输出影响，测试结论对应已执行的样例。Windows 和其他 DSH 版本尚未验证。
 
-在 **插件 → 管理** 中找到 `technical-terms-en-zh`，可以停用或卸载。
-
-## 实现
-
-插件使用 macOS 自带的 `/bin/cat` 读取术语规则。
-
-## 许可证
-
-本项目采用 [MIT License（MIT 许可证）](LICENSE)。
+项目采用 MIT 许可证。安装或使用遇到问题，可在仓库提交反馈。[术语规则](https://github.com/Calliope-Nicles/technical-terms-en-zh-plugin/blob/v2.0.0/src/terminology.md) · [DSH 入口](https://github.com/Calliope-Nicles/technical-terms-en-zh-plugin/blob/v2.0.0/src/dsh/index.mjs) · [许可证](https://github.com/Calliope-Nicles/technical-terms-en-zh-plugin/blob/v2.0.0/LICENSE) · [问题反馈](https://github.com/Calliope-Nicles/technical-terms-en-zh-plugin/issues)

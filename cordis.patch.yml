@@ -1,0 +1,3 @@
+- insert:
+    - id: technical-terms-en-zh
+      name: ./src/dsh/index.mjs

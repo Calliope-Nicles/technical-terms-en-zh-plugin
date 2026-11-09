@@ -1,0 +1,26 @@
+{
+  "name": "dsh-plugin-technical-terms-en-zh",
+  "version": "2.0.0",
+  "description": "专业术语英汉对照：中文回答中首次标注英文术语与中文释义，同条后续使用英文。",
+  "type": "module",
+  "main": "src/dsh/index.mjs",
+  "private": true,
+  "license": "MIT",
+  "author": "Calliope-Nicles",
+  "os": [
+    "darwin"
+  ],
+  "engines": {
+    "dsh": "0.2.1-rc.3"
+  },
+  "files": [
+    "cordis.patch.yml",
+    "src/dsh/index.mjs",
+    "src/terminology.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "cordis.patch.yml"
+    }
+  }
+}
