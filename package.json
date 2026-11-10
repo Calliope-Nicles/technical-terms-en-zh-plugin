@@ -1,6 +1,6 @@
 {
   "name": "dsh-plugin-technical-terms-en-zh",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "专业术语英汉对照：中文回答中首次标注英文术语与中文释义，同条后续使用英文。",
   "type": "module",
   "main": "src/dsh/index.mjs",
@@ -11,7 +11,7 @@
     "darwin"
   ],
   "engines": {
-    "dsh": "0.2.1-rc.3"
+    "dsh": "0.2.1-rc.3 || 0.2.2-rc.1"
   },
   "files": [
     "cordis.patch.yml",

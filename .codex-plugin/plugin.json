@@ -1,6 +1,6 @@
 {
   "name": "technical-terms-en-zh",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "在中文的软件开发解释中自然呈现英文专业术语及中文释义。",
   "hooks": "./hooks/hooks.json",
   "interface": {
