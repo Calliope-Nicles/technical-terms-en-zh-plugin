@@ -1,7 +1,7 @@
 {
-  "name": "dsh-plugin-technical-terms-en-zh",
-  "version": "2.0.1",
-  "description": "专业术语英汉对照：中文回答中首次标注英文术语与中文释义，同条后续使用英文。",
+  "name": "dsh-plugin-technical-english-companion",
+  "version": "2.0.2",
+  "description": "专业英语术语伴学 / Technical English Companion. Learn software development terms in English while working in Chinese.",
   "type": "module",
   "main": "src/dsh/index.mjs",
   "private": true,

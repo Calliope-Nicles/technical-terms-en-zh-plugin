@@ -6,7 +6,7 @@
           {
             "type": "command",
             "command": "/bin/cat \"${PLUGIN_ROOT}/src/terminology.md\"",
-            "statusMessage": "加载术语表达规则"
+            "statusMessage": "加载专业英语术语伴学规则"
           }
         ]
       }

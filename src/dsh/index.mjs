@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 
-export const name = 'technical-terms-en-zh';
+export const name = 'technical-english-companion';
 export const inject = ['systemPrompt'];
 
 export function apply(ctx) {
@@ -9,7 +9,7 @@ export function apply(ctx) {
   // Cordis removes this registration when the plugin unloads.
   // Cordis 会在插件卸载时移除此注册。
   ctx.systemPrompt.section({
-    name: 'technical-terms-en-zh:rules',
+    name: 'technical-english-companion:rules',
     order: 100,
     text,
     interpolate: false,

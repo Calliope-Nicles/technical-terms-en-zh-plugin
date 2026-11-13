@@ -1,9 +1,10 @@
 {
-  "name": "technical-terms-en-zh",
-  "version": "2.0.1",
-  "description": "在中文的软件开发解释中自然呈现英文专业术语及中文释义。",
+  "name": "technical-english-companion",
+  "version": "2.0.2",
+  "description": "专业英语术语伴学 / Technical English Companion. Learn software development terms in English while working in Chinese.",
   "hooks": "./hooks/hooks.json",
   "interface": {
+    "displayName": "Technical English Companion",
     "logo": "./assets/pitaya-icon.png",
     "composerIcon": "./assets/pitaya-icon.png"
   }

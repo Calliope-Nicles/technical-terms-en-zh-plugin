@@ -1,11 +1,11 @@
 {
-  "name": "technical-terms-public",
+  "name": "technical-english-companion-public",
   "interface": {
-    "displayName": "小火龙果"
+    "displayName": "Technical English Companion"
   },
   "plugins": [
     {
-      "name": "technical-terms-en-zh",
+      "name": "technical-english-companion",
       "source": {
         "source": "local",
         "path": "./"
